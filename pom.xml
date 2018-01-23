@@ -47,6 +47,10 @@
 							</execution>
 						</executions>
 						<configuration>
+							<propertiesUser>
+								<!--number of threads to use -->
+								<threadgroup.numberOfThreads>20</threadgroup.numberOfThreads>
+							</propertiesUser>
 							<ignoreResultFailures>true</ignoreResultFailures>
 						</configuration>
 					</plugin>
