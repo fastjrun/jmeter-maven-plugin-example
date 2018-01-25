@@ -26,7 +26,31 @@
 	<properties>
 		<jmeter-maven-plugin.version>2.6.0</jmeter-maven-plugin.version>
 	</properties>
-
+	<build>
+		<finalName>jmeter-maven-plugin-example</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<!-- not append assembly id in release file name -->
+					<appendAssemblyId>false</appendAssemblyId>
+					<descriptors>
+						<descriptor>target/classes/package.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 	<profiles>
 
 		<profile>
@@ -49,7 +73,7 @@
 						<configuration>
 							<propertiesUser>
 								<!--number of threads to use -->
-								<threadgroup.numberOfThreads>25</threadgroup.numberOfThreads>
+								<threadgroup.numberOfThreads>13</threadgroup.numberOfThreads>
 							</propertiesUser>
 							<ignoreResultFailures>true</ignoreResultFailures>
 						</configuration>
